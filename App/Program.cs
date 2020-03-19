@@ -2,6 +2,7 @@ namespace App
 {
     using Microsoft.AspNetCore.Hosting;
     using Microsoft.Extensions.Hosting;
+    using Sentry.Extensibility;
 
     public class Program
     {
@@ -14,6 +15,12 @@ namespace App
             Host.CreateDefaultBuilder(args)
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
+                    webBuilder.UseSentry(o =>
+                    {
+                        o.Debug = true;
+                        o.MaxRequestBodySize = RequestSize.Always;
+                        o.Dsn = "https://85dcb29cfd0749989cd42e21921163df@sentry.io/5167676";
+                    });
                     webBuilder.UseStartup<Startup>();
                 });
     }
