@@ -8,7 +8,10 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{73134C53-49D4-4466-A905-A636A50F416E}"
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
+		README.md = README.md
 	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AppTests", "AppTests\AppTests.csproj", "{6B997F9E-CD4C-48A9-801E-1A76928D287A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -20,6 +23,10 @@ Global
 		{927AAAD5-B714-41A2-9C14-7AB017CE75EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{927AAAD5-B714-41A2-9C14-7AB017CE75EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{927AAAD5-B714-41A2-9C14-7AB017CE75EC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6B997F9E-CD4C-48A9-801E-1A76928D287A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6B997F9E-CD4C-48A9-801E-1A76928D287A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6B997F9E-CD4C-48A9-801E-1A76928D287A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6B997F9E-CD4C-48A9-801E-1A76928D287A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
