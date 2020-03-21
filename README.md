@@ -1,2 +1,2 @@
 # App
-.NET Core 3.1 + Swagger + Posgres 12 + TypeScript + React + Redux (Mermelab + Material UI) + EF Core + EF Migration + Unit test project + CI/CD
+.NET Core 3.1 + Swagger + Posgres 12 + React + TypeScript + Redux + Material UI (Mermelab) + EF Core + EF Migration + Sentry + NUnit + Azure CI/CD
