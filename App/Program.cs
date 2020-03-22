@@ -1,5 +1,6 @@
 namespace App
 {
+    using DataLayer.DbContext;
     using Microsoft.AspNetCore.Hosting;
     using Microsoft.Extensions.Hosting;
     using Sentry.Extensibility;
@@ -8,7 +9,7 @@ namespace App
     {
         public static void Main(string[] args)
         {
-            CreateHostBuilder(args).Build().Run();
+            CreateHostBuilder(args).Build().MigrateDatabase().Run();
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
