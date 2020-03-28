@@ -11,12 +11,13 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "preserve",
+    "jsx": "react",
     "lib": [
-      "es2015",
-      "dom"
+      "dom",
+      "dom.iterable",
+      "esnext"
     ],
-    "skipLibCheck": false
+    "skipLibCheck": true
   },
   "include": [
     "src"
