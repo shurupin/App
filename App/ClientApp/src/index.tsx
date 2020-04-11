@@ -12,10 +12,6 @@ import * as ReactDOM from 'react-dom';
 // import { createBrowserHistory } from 'history';
 // import configureStore from './store/configureStore';
 
-import 'react-app-polyfill/ie11';
-import 'react-app-polyfill/stable';
-import 'proxy-polyfill';
-
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 
