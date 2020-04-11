@@ -60,6 +60,7 @@
     "eslint-plugin-import": "2.18.2",
     "eslint-plugin-jsx-a11y": "6.2.3",
     "eslint-plugin-react": "7.16.0",
+    "husky": "^4.2.5",
     "source-map-explorer": "^2.0.0",
     "typescript": "^3.7.2"
   },
@@ -79,5 +80,10 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "husky": {
+    "hooks": {
+      "pre-push": "npm run build"
+    }
+  }
 }
