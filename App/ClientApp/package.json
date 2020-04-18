@@ -10,7 +10,7 @@
     "core-js": "^3.6.4",
     "data-generator-retail": "^3.0.0",
     "fakerest": "~2.1.0",
-    "fetch-mock": "^9.3.1",
+    "fetch-mock": "^9.4.0",
     "fetch-mock-es5": "^7.0.3",
     "history": "4.10.1",
     "jquery": "^3.4.1",

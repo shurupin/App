@@ -88,6 +88,9 @@ export default {
                 returned: 'Returned',
             },
         },
+        users: {
+            name: 'User |||| Users',
+        },
         invoices: {
             name: 'Invoice |||| Invoices',
             fields: {
