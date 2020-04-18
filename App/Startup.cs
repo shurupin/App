@@ -19,6 +19,7 @@ namespace App
         }
 
         public IConfiguration Configuration { get; }
+        private readonly string DevelopmentPolicy = "_DevelopmentPolicy";
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
@@ -40,6 +41,17 @@ namespace App
             services.AddSwaggerGen(swaggerGenOption =>
             {
                 swaggerGenOption.SwaggerDoc("v1", new OpenApiInfo { Title = "App API", Version = "v1" });
+            });
+
+            services.AddCors(options =>
+            {
+                options.AddPolicy(this.DevelopmentPolicy,
+                    builder =>
+                    {
+                        builder.WithOrigins("http://localhost:3000")
+                            .AllowAnyMethod()
+                            .AllowAnyHeader();
+                    });
             });
         }
 
@@ -65,6 +77,11 @@ namespace App
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseSpaStaticFiles();
+
+            if (env.IsDevelopment())
+            {
+                app.UseCors(this.DevelopmentPolicy);
+            }
 
             app.UseRouting();
 
