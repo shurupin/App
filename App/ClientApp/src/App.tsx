@@ -17,9 +17,11 @@ import products from './products';
 import invoices from './invoices';
 import categories from './categories';
 import reviews from './reviews';
+import users from './users';
 
 import dataProviderFactory from './dataProvider';
 import fakeServerFactory from './fakeServer';
+import { IS_REAL_DATA_PROVIDER_USED } from './constants/constants';
 
 const i18nProvider = polyglotI18nProvider((locale: string) => {
     if (locale === 'fr') {
@@ -37,12 +39,18 @@ const App = () => {
         let restoreFetch;
 
         const fetchDataProvider = async () => {
-            restoreFetch = await fakeServerFactory(
-                process.env.REACT_APP_DATA_PROVIDER
-            );
             const dataProviderInstance = await dataProviderFactory(
                 process.env.REACT_APP_DATA_PROVIDER
             );
+            
+            if(IS_REAL_DATA_PROVIDER_USED){
+                restoreFetch = dataProviderInstance;
+            }
+            else{
+                restoreFetch = await fakeServerFactory(
+                    process.env.REACT_APP_DATA_PROVIDER
+                );
+            }
             setDataProvider(
                 // GOTCHA: dataProviderInstance can be a function
                 () => dataProviderInstance
@@ -74,6 +82,7 @@ const App = () => {
             layout={Layout}
             i18nProvider={i18nProvider}
         >
+            <Resource name="user" {...users} />
             <Resource name="customers" {...visitors} />
             <Resource
                 name="commands"

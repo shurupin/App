@@ -1,6 +1,8 @@
 import simpleRestProvider from 'ra-data-simple-rest';
+import { IS_REAL_DATA_PROVIDER_USED, REAL_API, FAKE_API } from '../constants/constants';
 
-const restProvider = simpleRestProvider('http://localhost:4000');
+const url = IS_REAL_DATA_PROVIDER_USED ? REAL_API : FAKE_API;
+const restProvider = simpleRestProvider(url);
 
 const delayedDataProvider = new Proxy(restProvider, {
     get: (target, name, self) =>

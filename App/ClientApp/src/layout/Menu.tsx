@@ -13,6 +13,7 @@ import categories from '../categories';
 import reviews from '../reviews';
 import SubMenu from './SubMenu';
 import { AppState } from '../types';
+import { IS_REAL_DATA_PROVIDER_USED } from '../constants/constants';
 
 type MenuName = 'menuCatalog' | 'menuSales' | 'menuCustomers';
 
@@ -129,6 +130,17 @@ const Menu: FC<Props> = ({ onMenuClick, dense, logout }) => {
                     sidebarIsOpen={open}
                     dense={dense}
                 />
+                {IS_REAL_DATA_PROVIDER_USED &&
+                    <MenuItemLink
+                        to={`/user`}
+                        primaryText={translate(`resources.users.name`, {
+                            smart_count: 2,
+                        })}
+                        leftIcon={<visitors.icon />}
+                        onClick={onMenuClick}
+                        sidebarIsOpen={open}
+                        dense={dense}
+                    />}
             </SubMenu>
             <MenuItemLink
                 to={`/reviews`}
