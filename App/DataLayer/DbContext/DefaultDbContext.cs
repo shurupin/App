@@ -1,6 +1,5 @@
 ﻿namespace App.DataLayer.DbContext
 {
-    using System;
     using System.Linq;
     using Microsoft.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore.Metadata;
