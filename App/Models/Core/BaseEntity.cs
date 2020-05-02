@@ -5,15 +5,12 @@
     using System.ComponentModel.DataAnnotations.Schema;
     using App.Models.Interfaces;
 
-    public class BaseEntity : IId, IGuid, IRowVersion
+    public class BaseEntity : IId, IGuid
     {
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public long Id { get; set; }
 
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public Guid Guid { get; set; }
-
-        [Timestamp]
-        public byte[] RowVersion { get; set; } = null!;
+        public Guid Guid { get; set; } = Guid.NewGuid();
     }
 }

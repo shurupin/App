@@ -23,7 +23,7 @@
         }
 
         [HttpDelete("{id}")]
-        public virtual async Task<ActionResult<T>> Delete(int id)
+        public virtual async Task<ActionResult<T>> Delete(long id)
         {
             T entity = await this._table.FindAsync(id);
             if (entity == null)
@@ -85,7 +85,7 @@
         }
 
         [HttpGet("{id}")]
-        public virtual async Task<ActionResult<T>> Get(int id)
+        public virtual async Task<ActionResult<T>> Get(long id)
         {
             T entity = await this._table.FindAsync(id);
 
@@ -102,14 +102,14 @@
         {
             this._table.Add(entity);
             await this._context.SaveChangesAsync();
-            int id = (int)typeof(T).GetProperty("Id").GetValue(entity);
+            long id = (long)typeof(T).GetProperty("Id").GetValue(entity);
             return this.Ok(await this._table.FindAsync(id));
         }
 
         [HttpPut("{id}")]
-        public virtual async Task<IActionResult> Put(int id, T entity)
+        public virtual async Task<IActionResult> Put(long id, T entity)
         {
-            int entityId = (int)typeof(T).GetProperty("Id").GetValue(entity);
+            long entityId = (long)typeof(T).GetProperty("Id").GetValue(entity);
             if (id != entityId)
             {
                 return this.BadRequest();
@@ -136,9 +136,9 @@
             return this.Ok(await this._table.FindAsync(entityId));
         }
 
-        private bool EntityExists(int id)
+        private bool EntityExists(long id)
         {
-            return this._table.Any(e => (int)typeof(T).GetProperty("Id").GetValue(e) == id);
+            return this._table.Any(entity => (long)typeof(T).GetProperty("Id").GetValue(entity) == id);
         }
 
     }
